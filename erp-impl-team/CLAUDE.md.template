@@ -1,0 +1,48 @@
+# CLAUDE.md — Client Project: <ชื่อลูกค้า>
+
+<!-- Template: 1 ลูกค้า = 1 โฟลเดอร์ = 1 ไฟล์นี้
+     ข้อ 2 (system landscape) แม่นแค่ไหน gap-fit และ config guide แม่นแค่นั้น -->
+
+## 1. ลูกค้า & โปรเจกต์
+- ธุรกิจลูกค้า:
+- ประเภทงาน: ☐ New implementation ☐ Rollout ☐ Improvement/Support
+- Scope ที่ตกลง (โมดูล/กระบวนการ):
+- Timeline สำคัญ: kickoff ___ / UAT ___ / go-live ___
+- Out of scope ที่ตกลงชัดเจน: (สำคัญ — กัน scope creep)
+
+## 2. System landscape (แม่นๆ — กระทบ gap-fit ทุกข้อ)
+- SAP: โมดูล ___ / เวอร์ชัน ___ (ECC/S4?) / landscape DEV-QAS-PRD: ___
+- Odoo: เวอร์ชัน ___ / ☐ Community ☐ Enterprise / hosting: ___ / staging: ___
+- ระบบไหนทำหน้าที่อะไร + integration ระหว่างกัน:
+- ระบบอื่นที่เกี่ยว (POS/WMS/e-Tax ฯลฯ):
+
+## 3. คนสำคัญฝั่งลูกค้า
+- Project sponsor: ___ / Key user ต่อแผนก: ___
+- คนมีอำนาจ sign-off: ___
+
+## 4. Workflow & สถานะ
+
+Implementation: **ba-requirement → [CLIENT: confirm blueprint] → functional-spec → [CLIENT: approve FS] → config-designer → (consultant ทำใน test system) → uat-designer → (loop จน defect เคลียร์) → [CLIENT: sign-off] → go-live**
+
+Improvement/CR: **cr-analyst (impact + size) → [HUMAN: อนุมัติ + commercial] → route ตามขนาด → UAT regression → close**
+
+Requirement lifecycle: DRAFT → CONFIRMED → IN_SPEC → IN_UAT → SIGNED_OFF
+Traceability: REQ-xxx ↔ FS-xx ↔ CFG-xx ↔ TC-xxx ห้ามขาดสาย
+
+## 5. กติกา
+- ทุก agent เขียน "เอกสาร" เท่านั้น — ไม่มีใครแตะระบบจริง consultant เป็นคนลงมือใน test ก่อนเสมอ
+- Client checkpoint 3 จุด (blueprint / FS / sign-off) ห้ามข้าม
+- ไม่แน่ใจพฤติกรรม standard ของเวอร์ชันลูกค้า → เขียน VERIFY-IN-SANDBOX ห้ามเดา
+- ของนอก scope → flag เป็น CR-candidate ห้ามรับปากแทนบริษัท
+- ข้อมูลลูกค้าเป็นความลับ — ห้ามอ้างชื่อลูกค้า/ข้อมูลข้ามโฟลเดอร์โปรเจกต์อื่น
+
+## 6. Decision log (อัปเดตเรื่อยๆ — กันรื้อเรื่องที่จบแล้ว)
+- <วันที่>: ตัดสินใจ ___ เพราะ ___ (คนตัดสินใจ: ___)
+
+## 7. โครงโฟลเดอร์
+- project/requirements/ — BP-xx, _catalog.md
+- project/specs/ — FS-xx
+- project/config/ — CFG-xx
+- project/uat/ — UAT-xx, _defects.md, UAT-summary.md
+- project/cr/ — CR-xxx, _cr-log.md
+- project/minutes/ — โน้ตประชุม (โยนไฟล์ดิบเข้ามาให้ ba-requirement สกัด requirement ได้)

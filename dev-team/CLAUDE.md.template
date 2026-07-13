@@ -1,0 +1,50 @@
+# CLAUDE.md — <ชื่อโปรเจกต์>
+
+<!-- Template: copy ไฟล์นี้ไปเป็น CLAUDE.md ที่ root ของโปรเจกต์ใหม่ แล้วกรอกให้ครบ ใช้เวลา ~10 นาที
+     ส่วนไหนยังไม่รู้ ให้เขียนว่า "TBD" ไว้ก่อน อย่าลบหัวข้อทิ้ง -->
+
+## 1. ธุรกิจนี้คืออะไร (Business context)
+- ผลิตภัณฑ์:
+- Target user:
+- ปัญหาที่แก้:
+- Business model:
+- Stage ปัจจุบัน: (idea / MVP / มีผู้ใช้จริง / มีรายได้)
+
+## 2. Tech stack
+- ภาษา/Framework:
+- Database:
+- Hosting/Deploy:
+- คำสั่งสำคัญ:
+  - รัน dev server: `TBD`
+  - รัน test ทั้งหมด: `TBD`
+  - Lint/format: `TBD`
+  - Build: `TBD`
+
+## 3. โครงสร้างโปรเจกต์
+- `src/` — TBD
+- `docs/` — เอกสาร workflow (ideas / research / specs / tasks / qa-reports / launch)
+- `docs/_queue.json` — สถานะงานแต่ละ slug
+
+## 4. Workflow ของทีม AI (สำคัญ — อ่านก่อนทำงานทุกครั้ง)
+
+Pipeline: **idea-groomer → market-analyst → [HUMAN: GO/NO-GO] → pm-spec → architect → [HUMAN: approve ADR] → implement (main agent) → qa-reviewer → (loop จนผ่าน) → marketing-reviewer → [HUMAN: launch]**
+
+สถานะใน docs/_queue.json:
+`GROOMING → ANALYZED → APPROVED → READY_FOR_ARCH → READY_FOR_BUILD → BUILDING → QA → READY_FOR_REVIEW → READY_TO_LAUNCH → LAUNCHED`
+
+กติกา:
+- ห้ามข้ามขั้น human checkpoint ทั้ง 3 จุด (GO/NO-GO, approve ADR, launch)
+- ทุก agent ต้องอ่านไฟล์ CLAUDE.md นี้ + ไฟล์ต้นทางใน docs/ ก่อนเริ่มงาน
+- การ implement โค้ดเป็นหน้าที่ของ main agent (ไม่มี subagent dev แยก) เพื่อให้เห็นภาพรวมทั้ง codebase — subagents มีหน้าที่ groom/วิเคราะห์/ตรวจสอบเท่านั้น
+- QA FAIL → กลับไปสถานะ BUILDING พร้อมรายงาน ห้ามปล่อยผ่าน
+
+## 5. กติกาเฉพาะโปรเจกต์นี้ (Conventions)
+<!-- เติมทุกครั้งที่ agent ทำอะไรผิดแล้วอยากกันไม่ให้ผิดซ้ำ -->
+- Commit message: TBD
+- Coding style: TBD
+- สิ่งที่ห้ามทำ: TBD (เช่น ห้ามแก้ไฟล์ migration เก่า, ห้าม hardcode API key)
+
+## 6. เป้าหมายปัจจุบัน (อัปเดตเรื่อยๆ)
+- Milestone ถัดไป:
+- สิ่งที่กำลังโฟกัส:
+- สิ่งที่ตัดสินใจไปแล้ว ห้ามรื้อ: (เช่น "ใช้ Postgres แล้ว อย่าเสนอ Mongo อีก")

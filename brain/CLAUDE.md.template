@@ -1,0 +1,30 @@
+# CLAUDE.md — Second Brain Workspace
+
+<!-- โฟลเดอร์นี้คือสมองที่สอง: จับความรู้เร็ว (inbox) → brain-keeper กลั่นและจัดส่ง → ใช้งานผ่าน agent/Obsidian
+     เปิดโฟลเดอร์นี้เป็น Obsidian vault ได้เลย (ไฟล์ .md ล้วน) -->
+
+## 1. Destinations ที่ลงทะเบียน (brain-keeper route ไปได้เฉพาะที่นี่)
+<!-- ความรู้เรื่องไหน ควรไปอยู่ไฟล์ไหน — เพิ่มแถวเมื่อมีบ้านใหม่ -->
+| เรื่อง | ปลายทาง | หมายเหตุ |
+|---|---|---|
+| ลูกค้า <ชื่อ> | <path>/CLAUDE.md หรือ project/minutes/ | ข้อมูลลูกค้า ระวัง data policy |
+| ไอเดีย product LINE-Odoo | <path>/line-odoo-suite/docs/ideas/ | |
+| ความรู้ Odoo/SAP (gap-fit) | <path>/<gap-fit-reference> | สร้างไฟล์เมื่อมีเนื้อครั้งแรก |
+| เทรนด์/สัญญาณตลาด UCP | <path>/ucp-initiative/strategy/watchlist.md | เฉพาะเสนอ ห้ามเปลี่ยนสถานะ trigger เอง |
+| ความรู้ทั่วไปยังไม่มีบ้าน | notes/ (ในโฟลเดอร์นี้) | ใส่ [[backlinks]] เสมอ |
+
+## 2. กติกา
+- inbox/ = จดอะไรก็ได้ ไม่ต้องจัด ไม่ต้องสวย — พิธีเป็นศูนย์คือหัวใจ
+- brain-keeper เสนอก่อนเขียนเสมอ การเขียนออกนอก brain/ ต้องได้ approve รายข้อ
+- ประมวลผลแล้วย้ายเข้า inbox/_archive/ ห้ามลบต้นฉบับ
+- Data policy: โฟลเดอร์นี้ sync มือถือ/cloud: ☐ ใช่ ☐ ไม่ — ถ้าใช่ ห้ามเก็บข้อมูลลับลูกค้าใน notes/
+- โน้ตที่แฝงงาน (todo/follow-up) → flag ใน digest เท่านั้น brain-keeper ไม่ทำงานแทน
+
+## 3. กิจวัตร
+- ระหว่างวัน/สัปดาห์: โยนโน้ตเข้า inbox/ (มือถือผ่าน Obsidian app ได้)
+- เช้าจันทร์ (คู่กับ PMO report): `cd ~/brain && claude` → "เคลียร์ inbox"
+
+## 4. โครงโฟลเดอร์
+- inbox/           — ทางเข้า จดโยนได้เลย
+- inbox/_archive/  — ต้นฉบับที่ประมวลแล้ว
+- notes/           — ความรู้ถาวรที่ยังไม่มีบ้านโปรเจกต์ (มี [[backlinks]])
