@@ -1,4 +1,4 @@
-# Claude AI Teams — ระบบทีม AI ครบชุด (22 agents / 4 ทีม + 2 shared)
+# Claude AI Teams — ระบบทีม AI ครบชุด (23 agents / 4 ทีม + 2 shared)
 
 ระบบ subagents สำหรับ Claude Code ครอบคลุม: หาไอเดีย→ทำ product / ทำ content การตลาด / วิเคราะห์ข้อมูล ERP / งาน implement ERP ให้ลูกค้า / ปรึกษากลยุทธ์
 
@@ -21,9 +21,9 @@ Claude จะเลือกตัวที่ตรงกับงานเอ�
 
 ---
 
-## 1) dev-team — ไอเดีย → Product (7 ตัว)
+## 1) dev-team — ไอเดีย → Product (8 ตัว)
 
-Pipeline: ไอเดีย → groom → วิเคราะห์ตลาด → [GO/NO-GO] → spec → architecture → [approve] → main agent เขียนโค้ด → QA loop → marketing check → [launch]
+Pipeline: ไอเดีย → groom → วิเคราะห์ตลาด → [GO/NO-GO] → spec → architecture → [approve] → UX/UI direction → main agent เขียนโค้ด → QA loop + UX review → marketing check → [launch]
 
 | Agent | หน้าที่ | Model |
 |---|---|---|
@@ -31,6 +31,7 @@ Pipeline: ไอเดีย → groom → วิเคราะห์ตลา�
 | market-analyst | คู่แข่ง/ตลาด/ราคา → verdict GO/NO-GO (FACT vs ASSUMPTION) | sonnet |
 | pm-spec | spec + แตก task + acceptance criteria | sonnet |
 | architect | เลือก stack, ADR, guardrails | inherit |
+| ux-ui-designer | business-first UX/UI: persona → โทน → visual hierarchy, competitive audit, เช็คลิสต์ก่อน ship (read-only ไม่เขียนไฟล์) | inherit |
 | qa-reviewer | รัน test จริง ตรวจตาม criteria PASS/FAIL | sonnet |
 | marketing-reviewer | เช็ค drift กับตลาด + launch plan | sonnet |
 | product-auditor | ตรวจโปรเจกต์เก่า หา improvement (effort/impact) | sonnet |

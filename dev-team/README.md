@@ -1,6 +1,6 @@
 # AI Product Team สำหรับ Claude Code
 
-ชุด subagents สำหรับ pipeline: ไอเดีย → groom → วิเคราะห์ตลาด → spec → architecture → dev → QA → marketing review → launch
+ชุด subagents สำหรับ pipeline: ไอเดีย → groom → วิเคราะห์ตลาด → spec → architecture → UX/UI → dev → QA → marketing review → launch
 
 ## วิธีติดตั้ง (ครั้งเดียว ใช้ได้ทุกโปรเจกต์)
 
@@ -25,7 +25,7 @@ claude
 Claude จะเรียก idea-groomer มาคุยกับคุณเอง หรือสั่งตรงๆ ก็ได้:
 > ใช้ idea-groomer ช่วย groom ไอเดียนี้
 
-## ทีมงาน 5 ตัว
+## ทีมงาน 8 ตัว
 
 | Agent | หน้าที่ | Output |
 |---|---|---|
@@ -33,8 +33,10 @@ Claude จะเรียก idea-groomer มาคุยกับคุณเ�
 | market-analyst | วิเคราะห์ตลาด คู่แข่ง ให้ verdict GO/NO-GO | docs/research/ |
 | pm-spec | เขียน spec + แตก task พร้อม acceptance criteria | docs/specs/, docs/tasks/ |
 | architect | เลือก stack ออกแบบระบบ เขียน ADR | docs/specs/*-adr.md |
+| ux-ui-designer | UX/UI แบบ business-first: persona → โทน → hierarchy, competitive audit, รีวิวก่อน ship | ตอบในแชท (read-only) |
 | qa-reviewer | รัน test ตรวจตาม acceptance criteria ให้ PASS/FAIL | docs/qa-reports/ |
 | marketing-reviewer | เช็ค drift กับตลาด + เตรียม launch plan | docs/launch/ |
+| product-auditor | ตรวจโปรเจกต์เก่า หา improvement (effort/impact) | docs/research/ |
 
 **ทำไมไม่มี dev-implementer?** ตั้งใจครับ — การเขียนโค้ดให้ main agent ของ Claude Code ทำเอง เพราะมันเห็น context ทั้ง codebase + CLAUDE.md ครบ (แก้ปัญหา "context gatekeeping") ส่วน subagents ทำเฉพาะงาน groom/วิเคราะห์/ตรวจ ซึ่งเป็นงานที่ได้ประโยชน์จาก context แยกและมุมมองอิสระ
 
@@ -53,10 +55,14 @@ Claude จะเรียก idea-groomer มาคุยกับคุณเ�
   →  market-analyst → verdict GO → คุณอนุมัติ
 คุณ:  ทำ spec และแตก task เลย
   →  pm-spec → architect → คุณ approve ADR
+คุณ:  หน้า landing ควรวางยังไง ใครคือ persona หลัก
+  →  ux-ui-designer → ทิศทาง UI + โทน + CTA เดียวที่ต้องเด่น
 คุณ:  เริ่ม implement T-001 ถึง T-003
   →  main agent เขียนโค้ด
 คุณ:  QA หน่อย
   →  qa-reviewer → FAIL พร้อมรายงาน → แก้ → QA ใหม่ → PASS
+คุณ:  รีวิว UI ก่อน ship
+  →  ux-ui-designer → เช็คลิสต์ UX (CTA/mobile/hierarchy/a11y) → แก้ตามผลกระทบ
 คุณ:  เตรียม launch
   →  marketing-reviewer → READY_TO_LAUNCH → คุณกดปุ่ม 🚀
 ```
